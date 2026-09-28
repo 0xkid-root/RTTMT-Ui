@@ -1,9 +1,8 @@
 import { NavItem, FooterGroup } from '../types/landing';
 
 export const MAIN_NAV: NavItem[] = [
+  { label: 'Problem', href: '#problem' },
   { label: 'Product', href: '#product' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
 ];
 
