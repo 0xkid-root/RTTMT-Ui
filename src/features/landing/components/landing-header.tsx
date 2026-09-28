@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Menu } from 'lucide-react';
 import { MAIN_NAV } from '../data/landing-content';
 
@@ -12,12 +13,16 @@ export function LandingHeader() {
           href="/"
           className="group flex items-center gap-3"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04]">
-            <div className="h-2.5 w-2.5 rounded-full bg-[#6366F1] shadow-[0_0_12px_rgba(99,102,241,0.5)]" />
-          </div>
-
+          <Image
+            src="/rttmt_logo-removebg-preview.png"
+            alt="RTMT Logo"
+            width={150}
+            height={40}
+            className="w-auto h-10 object-contain "
+            priority
+          />
           <span className="text-[17px] font-semibold tracking-[-0.02em] text-white">
-            RTMT
+            RTTMT
           </span>
         </Link>
 
