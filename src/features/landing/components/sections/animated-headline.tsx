@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 
 const HERO_PHRASES = [
-  { text: 'Risk Operations.', color: 'text-primary', bg: 'bg-primary' },
-  { text: 'Fraud Operations.', color: 'text-danger', bg: 'bg-danger' },
-  { text: 'Compliance Teams.', color: 'text-success', bg: 'bg-success' },
-  { text: 'Risk Investigations.', color: 'text-warning', bg: 'bg-warning' },
-  { text: 'Financial Operations.', color: 'text-blue', bg: 'bg-blue' },
-  { text: 'Transaction Intelligence.', color: 'text-primary', bg: 'bg-primary' },
+  { text: 'Risk Operations.', color: 'from-primary to-indigo-500' },
+  { text: 'Fraud Operations.', color: 'from-danger to-rose-500' },
+  { text: 'Compliance Teams.', color: 'from-success to-emerald-400' },
+  { text: 'Risk Investigations.', color: 'from-warning to-amber-500' },
+  { text: 'Financial Operations.', color: 'from-blue-400 to-indigo-400' },
+  { text: 'Transaction Intelligence.', color: 'from-primary to-purple-500' },
 ];
 
 export function AnimatedHeadline() {
@@ -16,6 +16,7 @@ export function AnimatedHeadline() {
   const [reduce, setReduce] = useState(false);
 
   useEffect(() => {
+    // Avoid calling setReduce synchronously if we want to avoid cascading render lint warning
     const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setReduce(isReduced);
     if (isReduced) return;
@@ -43,7 +44,7 @@ export function AnimatedHeadline() {
                     : 'opacity-0 translate-y-3 pointer-events-none'
                 } ${reduce && !isActive ? 'hidden' : ''}`}
               >
-                <span className={`font-semibold whitespace-nowrap ${phrase.color}`}>
+                <span className={`font-semibold whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r ${phrase.color} drop-shadow-sm`}>
                   {phrase.text}
                 </span>
               </span>
