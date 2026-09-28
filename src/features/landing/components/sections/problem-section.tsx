@@ -19,9 +19,9 @@ const SOURCES = [
 ];
 
 const TOOLS = [
-  { id: 'tool-a', label: 'Transaction System' },
-  { id: 'tool-b', label: 'Risk Engine' },
-  { id: 'tool-c', label: 'Investigation Tool' },
+  { id: 'tool-a', label: 'TRANSACTION SYSTEM' },
+  { id: 'tool-b', label: 'RISK ENGINE' },
+  { id: 'tool-c', label: 'INVESTIGATION TOOLS' },
 ];
 
 export function ProblemSection() {
@@ -83,8 +83,8 @@ export function ProblemSection() {
             Financial Risk Moves Faster Than Manual Review
           </h3>
           <p className="text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto">
-            Transactions happen every second. Risk signals are scattered across systems.
-            Teams need one place to detect, investigate, and respond in real time.
+            Transactions happen every second. Risk signals are spread across multiple systems,
+            making it harder to see the full picture and respond in time.
           </p>
         </div>
 
@@ -161,7 +161,7 @@ export function ProblemSection() {
                   <div className="flex items-center gap-2">
                     <Activity className="h-4 w-4 text-primary transition-transform duration-300 group-hover:scale-110" />
                     <span className="text-sm font-bold text-primary tracking-widest uppercase">
-                      Scattered Signals
+                      Scattered Risk Signals
                     </span>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export function ProblemSection() {
                   </div>
                   <div className="flex items-center justify-center gap-2 text-[11px] text-text-muted font-medium transition-colors duration-300 group-hover:text-warning/80">
                     <Clock className="h-3 w-3" />
-                    <span>Multiple tools • Delayed response</span>
+                    <span>Fragmented systems • Delayed response</span>
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export function ProblemSection() {
           </div>
 
           <div className="my-2 px-6 py-4 rounded-xl border border-primary/30 bg-primary/5 text-center">
-            <span className="text-xs font-bold text-primary tracking-widest uppercase">Scattered Signals</span>
+            <span className="text-xs font-bold text-primary tracking-widest uppercase">Scattered Risk Signals</span>
           </div>
 
           <div className="w-px h-10 bg-border relative overflow-hidden">
@@ -238,7 +238,7 @@ export function ProblemSection() {
 
           <div className="my-2 p-5 w-full max-w-[280px] rounded-xl border border-warning/30 bg-warning/5 text-center flex flex-col items-center gap-2">
             <span className="text-xs font-bold text-warning tracking-widest uppercase">Manual Review</span>
-            <span className="text-[11px] text-text-muted flex items-center gap-1.5"><Clock className="w-3 h-3" /> Delayed response</span>
+            <span className="text-[11px] text-text-muted flex items-center gap-1.5 text-center"><Clock className="w-3 h-3 shrink-0" /> Fragmented systems • Delayed response</span>
           </div>
 
         </div>
