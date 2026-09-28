@@ -11,41 +11,88 @@ export const FOOTER_GROUPS: FooterGroup[] = [
   {
     title: 'Product',
     links: [
-      { label: 'Features', href: '#' },
-      { label: 'Pricing', href: '#' },
-      { label: 'Changelog', href: '#' },
+      {
+        label: 'Transaction Monitoring',
+        href: '#product',
+      },
+      {
+        label: 'Risk Intelligence',
+        href: '#features',
+      },
+      {
+        label: 'Alert Management',
+        href: '#features',
+      },
+      {
+        label: 'Case Management',
+        href: '#features',
+      },
     ],
   },
+
   {
     title: 'Solutions',
     links: [
-      { label: 'Fraud Operations', href: '#' },
-      { label: 'Risk Management', href: '#' },
-      { label: 'Case Management', href: '#' },
+      {
+        label: 'Fraud Operations',
+        href: '#solutions',
+      },
+      {
+        label: 'Risk Management',
+        href: '#solutions',
+      },
+      {
+        label: 'Financial Operations',
+        href: '#solutions',
+      },
+      {
+        label: 'Compliance',
+        href: '#solutions',
+      },
     ],
   },
+
+  {
+    title: 'Platform',
+    links: [
+      {
+        label: 'Transaction Explorer',
+        href: '#features',
+      },
+      {
+        label: 'Live Monitoring',
+        href: '#features',
+      },
+      {
+        label: 'Risk Signals',
+        href: '#features',
+      },
+      {
+        label: 'Investigations',
+        href: '#features',
+      },
+    ],
+  },
+
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '#' },
-      { label: 'API Reference', href: '#' },
-      { label: 'Blog', href: '#' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Contact', href: '#' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Security', href: '#' },
+      {
+        label: 'Documentation',
+        href: '#documentation',
+      },
+      {
+        label: 'API Reference',
+        href: '#api',
+      },
+      {
+        label: 'Security',
+        href: '#security',
+      },
+      {
+        label: 'Request Demo',
+        href: '#contact',
+      },
     ],
   },
 ];
