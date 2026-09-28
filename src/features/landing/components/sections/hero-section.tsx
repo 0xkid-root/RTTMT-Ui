@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { AnimatedHeadline } from './animated-headline';
 import { Activity, ShieldAlert, FileSearch, ArrowRight, Circle, Check } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -245,13 +246,10 @@ export function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          Real-time transaction intelligence
+          REAL-TIME RISK INTELLIGENCE
         </div>
 
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-4xl text-foreground">
-          See risk before it becomes <br className="hidden sm:block" />
-          <span className="text-text-secondary">a problem.</span>
-        </h1>
+        <AnimatedHeadline />
 
         <p className="text-lg text-text-secondary max-w-2xl mb-10">
           Monitor every transaction, detect suspicious patterns, and give your risk team the context to investigate and act faster.
