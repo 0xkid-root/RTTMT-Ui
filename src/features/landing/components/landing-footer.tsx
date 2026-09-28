@@ -4,7 +4,7 @@ import { FOOTER_GROUPS } from '../data/landing-content';
 export function LandingFooter() {
   return (
     <footer className="border-t border-border bg-background text-text-secondary">
-      <div className="container mx-auto px-4 py-14 sm:px-8 lg:py-16">
+      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 sm:px-8 lg:px-10 lg:py-16">
         {/* Main Footer */}
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(4,1fr)] lg:gap-10">
           {/* Brand */}
