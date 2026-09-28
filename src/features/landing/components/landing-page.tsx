@@ -18,10 +18,17 @@ export function LandingPage() {
       <main className="flex-1 flex flex-col">
         <HeroSection />
         <TrustBar />
-        <ProblemSection />
-        <ProductSection />
-        <HowRtmtWorksSection />
+        <div id="problem">
+          <ProblemSection />
+        </div>
+        <div id="product">
+          <ProductSection />
+        </div>
+        <div id="how-it-works">
+          <HowRtmtWorksSection />
+        </div>
         <WhyRealTimeRiskSection />
+
 
         <CtaSection />
       </main>
