@@ -11,88 +11,32 @@ export const FOOTER_GROUPS: FooterGroup[] = [
   {
     title: 'Product',
     links: [
-      {
-        label: 'Transaction Monitoring',
-        href: '#product',
-      },
-      {
-        label: 'Risk Intelligence',
-        href: '#features',
-      },
-      {
-        label: 'Alert Management',
-        href: '#features',
-      },
-      {
-        label: 'Case Management',
-        href: '#features',
-      },
+      { label: 'Transaction Monitoring', href: '#' },
+      { label: 'Risk Intelligence', href: '#' },
     ],
   },
-
   {
     title: 'Solutions',
     links: [
-      {
-        label: 'Fraud Operations',
-        href: '#solutions',
-      },
-      {
-        label: 'Risk Management',
-        href: '#solutions',
-      },
-      {
-        label: 'Financial Operations',
-        href: '#solutions',
-      },
-      {
-        label: 'Compliance',
-        href: '#solutions',
-      },
+      { label: 'Fraud Operations', href: '#' },
+      { label: 'Risk Management', href: '#' },
     ],
   },
-
   {
     title: 'Platform',
     links: [
-      {
-        label: 'Transaction Explorer',
-        href: '#features',
-      },
-      {
-        label: 'Live Monitoring',
-        href: '#features',
-      },
-      {
-        label: 'Risk Signals',
-        href: '#features',
-      },
-      {
-        label: 'Investigations',
-        href: '#features',
-      },
+      { label: 'Live Monitoring', href: '#' },
+      { label: 'Risk Signals', href: '#' },
+      { label: 'Cases', href: '#' },
     ],
   },
-
   {
     title: 'Resources',
     links: [
-      {
-        label: 'Documentation',
-        href: '#documentation',
-      },
-      {
-        label: 'API Reference',
-        href: '#api',
-      },
-      {
-        label: 'Security',
-        href: '#security',
-      },
-      {
-        label: 'Request Demo',
-        href: '#contact',
-      },
+      { label: 'Docs', href: '#' },
+      { label: 'API', href: '#' },
+      { label: 'Security', href: '#' },
+      { label: 'Demo', href: '#' },
     ],
-  },
+  }
 ];

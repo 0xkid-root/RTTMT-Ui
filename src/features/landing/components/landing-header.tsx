@@ -1,46 +1,109 @@
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUpRight, Menu } from 'lucide-react';
 import { MAIN_NAV } from '../data/landing-content';
 
 export function LandingHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 text-foreground">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-8">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold tracking-tighter">RTMT</span>
-          </Link>
-        </div>
-        
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-text-secondary">
+    <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-[#101010]/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
+
+        {/* Logo */}
+        <Link
+          href="/"
+          className="group flex items-center gap-3"
+        >
+          <Image
+            src="/rttmt_logo-removebg-preview.png"
+            alt="RTMT Logo"
+            width={150}
+            height={40}
+            className="w-auto h-10 object-contain "
+            priority
+          />
+          <span className="text-[17px] font-semibold tracking-[-0.02em] text-white">
+            RTTMT
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 md:flex">
           {MAIN_NAV.map((item) => (
-            <Link 
-              key={item.label} 
+            <Link
+              key={item.label}
               href={item.href}
-              className="transition-colors hover:text-foreground"
+              className="
+                rounded-md px-4 py-2
+                text-[13px] font-medium
+                text-white/55
+                transition-all duration-200
+                hover:bg-white/[0.04]
+                hover:text-white
+              "
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Link href="/login" className="text-sm font-medium hover:text-foreground text-text-secondary transition-colors">
+        {/* Right Actions */}
+        <div className="hidden items-center gap-5 md:flex">
+          <Link
+            href="/login"
+            className="
+              text-[13px] font-medium
+              text-white/60
+              transition-colors
+              hover:text-white
+            "
+          >
             Login
           </Link>
-          <Link 
-            href="/demo" 
-            className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+
+          <Link
+            href="/demo"
+            className="
+              group inline-flex h-10 items-center gap-2
+              rounded-lg
+              border border-white/10
+              bg-white
+              px-4
+              text-[13px] font-semibold
+              text-[#101010]
+              transition-all duration-200
+              hover:bg-white/90
+            "
           >
             Request Demo
+
+            <ArrowUpRight
+              className="
+                h-3.5 w-3.5
+                transition-transform duration-200
+                group-hover:-translate-y-0.5
+                group-hover:translate-x-0.5
+              "
+            />
           </Link>
         </div>
 
-        {/* Mobile Nav Toggle */}
-        <button className="inline-flex items-center justify-center rounded-md p-2 text-text-secondary hover:bg-surface-elevated hover:text-foreground md:hidden">
-          <Menu className="h-5 w-5" />
-          <span className="sr-only">Toggle menu</span>
+        {/* Mobile */}
+        <button
+          type="button"
+          aria-label="Open navigation menu"
+          className="
+            flex h-9 w-9 items-center justify-center
+            rounded-lg
+            border border-white/10
+            bg-white/[0.03]
+            text-white/70
+            transition
+            hover:bg-white/[0.07]
+            hover:text-white
+            md:hidden
+          "
+        >
+          <Menu className="h-[18px] w-[18px]" />
         </button>
       </div>
     </header>
