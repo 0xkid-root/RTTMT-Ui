@@ -257,11 +257,8 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-20">
           <button className="group h-12 px-8 rounded-md bg-white text-[#101010] font-semibold shadow-lg shadow-white/5 hover:bg-white/90 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-            Explore Platform
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </button>
-          <button className="h-12 px-8 rounded-md bg-surface border border-white/10 text-foreground font-medium hover:bg-surface-elevated transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
             Request Demo
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
 
