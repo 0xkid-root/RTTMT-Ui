@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatedHeadline } from './animated-headline';
 import { Activity, ShieldAlert, FileSearch, ArrowRight, Circle, Check } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 /* ------------------------------------------------------------------ */
 /* Types                                                               */
@@ -139,6 +140,7 @@ const RADIUS = 70;
 const CIRC = 2 * Math.PI * RADIUS;
 
 export function HeroSection() {
+  const router = useRouter();
   const [feed, setFeed] = useState<Transaction[]>(SEED);
   const [totals, setTotals] = useState({ total: 125842, high: 1248, cases: 627 });
   const [score, setScore] = useState(87);
@@ -204,6 +206,10 @@ export function HeroSection() {
     e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
   };
 
+  const requestDemo = ()=>{
+    window.open("https://form.typeform.com/to/x60nXRMV", "_blank");
+  }
+
   const spotlightMask = 'radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), black, transparent 70%)';
   const gridMask = 'radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent 75%)';
 
@@ -255,8 +261,8 @@ export function HeroSection() {
           Monitor every transaction, detect suspicious patterns, and give your risk team the context to investigate and act faster.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-20">
-          <button className="group h-12 px-8 rounded-md bg-white text-[#101010] font-semibold shadow-lg shadow-white/5 hover:bg-white/90 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+        <div className="flex flex-col sm:flex-row gap-4 mb-20 cursor-pointer">
+          <button onClick={requestDemo} className="cursor-pointer group h-12 px-8 rounded-md bg-white text-[#101010] font-semibold shadow-lg shadow-white/5 hover:bg-white/90 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background">
             Request Demo
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>

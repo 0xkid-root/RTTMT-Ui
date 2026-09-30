@@ -149,14 +149,14 @@ export function LandingHeader() {
         {/* Right actions */}
         <div className="hidden items-center gap-5 md:flex">
           <Link
-            href="/login"
+            href="#"
             className={`rounded-md text-[13px] font-medium text-white/60 transition-colors hover:text-white ${focusRing}`}
           >
             Login
           </Link>
 
           <Link
-            href="/demo"
+            href="#"
             className={`group relative inline-flex h-10 items-center gap-2 overflow-hidden rounded-lg border border-white/10 bg-white px-4 text-[13px] font-semibold text-[#101010] transition-all duration-200 hover:bg-white/90 hover:shadow-[0_0_24px_rgba(255,255,255,0.18)] active:scale-[0.97] ${focusRing}`}
           >
             <span
@@ -234,7 +234,7 @@ export function LandingHeader() {
                 className="mt-6 flex flex-col gap-3"
               >
                 <Link
-                  href="/demo"
+                  href="#"
                   onClick={() => setMenuOpen(false)}
                   className={`inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white text-[14px] font-semibold text-[#101010] active:scale-[0.98] ${focusRing}`}
                 >
@@ -242,7 +242,7 @@ export function LandingHeader() {
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="/login"
+                  href="#"
                   onClick={() => setMenuOpen(false)}
                   className={`inline-flex h-12 items-center justify-center rounded-lg border border-white/10 text-[14px] font-medium text-white/70 hover:text-white ${focusRing}`}
                 >
