@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import {
   motion,
   AnimatePresence,
@@ -12,7 +13,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
 } from 'framer-motion';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Sun, Moon } from 'lucide-react';
 import { MAIN_NAV } from '../data/landing-content';
 
 const cinematicEase = [0.16, 1, 0.3, 1] as const;
@@ -21,6 +22,25 @@ type NavItem = { label: string; href: string };
 const NAV = MAIN_NAV as ReadonlyArray<NavItem>;
 
 const hashId = (href: string) => (href.includes('#') ? href.split('#')[1] : null);
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return <div className="w-9 h-9" />;
+
+  return (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="flex h-9 w-9 items-center justify-center rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/[0.03] bg-black/[0.03] dark:text-white/70 text-black/70 transition dark:hover:bg-white/[0.07] hover:bg-black/[0.07] dark:hover:text-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      aria-label="Toggle theme"
+    >
+      {theme === 'dark' ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
+    </button>
+  );
+}
 
 export function LandingHeader() {
   const pathname = usePathname();
@@ -85,8 +105,8 @@ export function LandingHeader() {
   return (
     <header
       className={`sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ${scrolled || menuOpen
-        ? 'border-white/[0.09] bg-[#101010]/95 shadow-[0_8px_30px_rgba(0,0,0,0.35)]'
-        : 'border-white/[0.06] bg-[#101010]/70'
+        ? 'dark:border-white/[0.09] border-slate-200/70 dark:bg-[#101010]/95 bg-white/80 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)] shadow-[0_8px_30px_rgba(0,0,0,0.05)]'
+        : 'dark:border-white/[0.06] border-slate-200/40 dark:bg-[#101010]/70 bg-white/50'
         }`}
     >
       <div
@@ -104,7 +124,7 @@ export function LandingHeader() {
               }`}
             priority
           />
-          <span className="text-[17px] font-semibold tracking-[-0.02em] text-white">RTTMT</span>
+          <span className="text-[17px] font-semibold tracking-[-0.02em] text-foreground">RTTMT</span>
         </Link>
 
         {/* Desktop navigation with a hover pill that glides between items */}
@@ -123,13 +143,13 @@ export function LandingHeader() {
                 onMouseEnter={() => setHovered(item.label)}
                 onFocus={() => setHovered(item.label)}
                 onBlur={() => setHovered(null)}
-                className={`relative rounded-md px-4 py-2 text-[13px] font-medium transition-colors duration-200 ${focusRing} ${active || hovered === item.label ? 'text-white' : 'text-white/55'
+                className={`relative rounded-md px-4 py-2 text-[13px] font-medium transition-colors duration-200 ${focusRing} ${active || hovered === item.label ? 'text-foreground' : 'text-text-secondary'
                   }`}
               >
                 {hovered === item.label && (
                   <motion.span
                     layoutId="nav-hover-pill"
-                    className="absolute inset-0 -z-10 rounded-md bg-white/[0.06]"
+                    className="absolute inset-0 -z-10 rounded-md dark:bg-white/[0.06] bg-black/[0.04]"
                     transition={isReduced ? { duration: 0 } : { duration: 0.35, ease: cinematicEase }}
                   />
                 )}
@@ -137,7 +157,7 @@ export function LandingHeader() {
                 {active && (
                   <motion.span
                     layoutId="nav-active-line"
-                    className="absolute left-4 right-4 -bottom-[1px] h-px bg-white"
+                    className="absolute left-4 right-4 -bottom-[1px] h-px dark:bg-white bg-black"
                     transition={isReduced ? { duration: 0 } : { duration: 0.4, ease: cinematicEase }}
                   />
                 )}
@@ -150,7 +170,7 @@ export function LandingHeader() {
         <div className="hidden items-center gap-5 md:flex">
           <Link
             href="#"
-            className={`rounded-md text-[13px] font-medium text-white/60 transition-colors hover:text-white ${focusRing}`}
+            className={`rounded-md text-[13px] font-medium text-text-secondary transition-colors hover:text-foreground ${focusRing}`}
           >
             Login
           </Link>
@@ -166,6 +186,7 @@ export function LandingHeader() {
             <span className="relative">Request Call</span>
             <ArrowUpRight className="relative h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
+          <ThemeToggle />
         </div>
 
         {/* Mobile toggle */}
@@ -175,7 +196,7 @@ export function LandingHeader() {
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((o) => !o)}
-          className={`flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/70 transition hover:bg-white/[0.07] hover:text-white md:hidden ${focusRing}`}
+          className={`flex h-9 w-9 items-center justify-center rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/[0.03] bg-black/[0.03] dark:text-white/70 text-black/70 transition dark:hover:bg-white/[0.07] hover:bg-black/[0.07] dark:hover:text-white hover:text-black md:hidden ${focusRing}`}
         >
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -201,7 +222,7 @@ export function LandingHeader() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={isReduced ? undefined : { opacity: 0, height: 0 }}
             transition={isReduced ? { duration: 0 } : { duration: 0.4, ease: cinematicEase }}
-            className="overflow-hidden border-t border-white/[0.06] md:hidden"
+            className="overflow-hidden border-t dark:border-white/[0.06] border-slate-200/70 md:hidden"
           >
             <nav aria-label="Mobile" className="mx-auto flex max-w-[1400px] flex-col px-5 sm:px-8 pb-6 pt-3">
               {NAV.map((item, i) => {
@@ -217,11 +238,11 @@ export function LandingHeader() {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       aria-current={active ? 'page' : undefined}
-                      className={`flex items-center justify-between border-b border-white/[0.06] py-4 text-[17px] font-medium transition-colors ${focusRing} ${active ? 'text-white' : 'text-white/60 hover:text-white'
+                      className={`flex items-center justify-between border-b dark:border-white/[0.06] border-slate-200/70 py-4 text-[17px] font-medium transition-colors ${focusRing} ${active ? 'text-foreground' : 'text-text-secondary hover:text-foreground'
                         }`}
                     >
                       {item.label}
-                      {active && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                      {active && <span className="h-1.5 w-1.5 rounded-full dark:bg-white bg-black" />}
                     </Link>
                   </motion.div>
                 );
@@ -259,7 +280,7 @@ export function LandingHeader() {
         <motion.div
           aria-hidden="true"
           style={{ scaleX: progress }}
-          className="absolute -bottom-px left-0 h-px w-full origin-left bg-gradient-to-r from-white/0 via-white/70 to-white"
+          className="absolute -bottom-px left-0 h-px w-full origin-left dark:bg-gradient-to-r dark:from-white/0 dark:via-white/70 dark:to-white bg-gradient-to-r from-black/0 via-black/30 to-black/50"
         />
       )}
     </header>
